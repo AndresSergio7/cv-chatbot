@@ -42,10 +42,27 @@ st.markdown("""
         </p>
     </div>
 """, unsafe_allow_html=True)
+st.markdown("### 💡 Try asking one of these:")
+
+col1, col2, col3 = st.columns(3)
+with col1:
+    if st.button("📈 Tell me about an AI project"):
+        st.session_state["preset_question"] = "Can you tell me about a project you've done in AI?"
+
+with col2:
+    if st.button("🏢 What companies have you worked for?"):
+        st.session_state["preset_question"] = "What companies have you worked for?"
+
+with col3:
+    if st.button("🌍 What languages do you speak?"):
+        st.session_state["preset_question"] = "What languages do you speak?"
 
 
-question = st.text_input("")
-if question:
-    with st.spinner("Thinking..."):
-        answer = qa_chain.run(question)
-        st.success("🤖 " + answer)
+question = st.text_input(
+    "Ask me something:",
+    value=st.session_state.get("preset_question", "")
+)
+
+# Clear preset after use
+st.session_state["preset_question"] = ""
+
