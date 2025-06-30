@@ -35,8 +35,7 @@ qa_chain = RetrievalQA.from_chain_type(llm=llm, retriever=vectorstore.as_retriev
 st.set_page_config(page_title="AI CV Chatbot", page_icon="🤖")
 st.title("🤖 Ask Me About My Experience")
 
-question = st.text_input("This chatbot was built using LangChain, OpenAI, and Streamlit. It uses a language model (LLM) to answer questions about my professional experience, based on my resume and a custom summary. Developed by Sergio Valle as an interactive way to present his professional profile.
-Please remember that tokens are limited — don’t max out my credit card 😅💸😂")
+question = st.text_input("This chatbot was built using LangChain, OpenAI, and Streamlit. It uses a language model (LLM) to answer questions about my professional experience, based on my resume and a custom summary. Developed by Sergio Valle as an interactive way to present his professional profile.Please remember that tokens are limited — don’t max out my credit card 😅💸😂")
 if question:
     with st.spinner("Thinking..."):
         answer = qa_chain.run(question)
