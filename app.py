@@ -66,9 +66,8 @@ question = st.text_input(
 # Clear preset after use
 st.session_state["preset_question"] = ""
 
-question = st.text_input("")
 if question:
     with st.spinner("Thinking..."):
         answer = qa_chain.run(question)
-        st.success("🤖 " + answer)
+    st.success("🤖 " + answer)
 
