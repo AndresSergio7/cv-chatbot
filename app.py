@@ -37,7 +37,7 @@ st.markdown("""
     <div style='text-align: center;'>
         <h1 style='font-size: 3em;'>🤖 Ask Me About My Experience or Personal Life</h1>
         <p style='font-size: 1.2em; max-width: 700px; margin: 0 auto;'>
-            This chatbot was built using <b>LangChain</b>, <b>OpenAI</b>, and <b>Streamlit</b>. It uses a language model (LLM) to answer questions about my professional and personal experience based on my resume and custom input.<br><br>
+            Hi, my name is Sergio and i created this simple Chatbot using using <b>LangChain</b>, <b>OpenAI</b>, and <b>Streamlit</b>. It uses a language model (LLM) to answer questions about my professional and personal experience based on my resume and custom input.Fell free to ask any question.<br><br>
             <span style="color:gray;">Please remember that tokens are limited — don’t max out my credit card 🥲💸😂</span>
         </p>
     </div>
