@@ -20,6 +20,13 @@ splitter = CharacterTextSplitter(chunk_size=300, chunk_overlap=50)
 docs = splitter.split_documents(all_docs)
 
 embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+print("🚀 Trying to embed documents...")
+try:
+    vectorstore = FAISS.from_documents(docs, embeddings)
+except Exception as e:
+    st.error(f"Embedding error: {e}")
+    st.stop()
+
 vectorstore = FAISS.from_documents(docs, embeddings)
 
 llm = ChatOpenAI(model_name="gpt-4", temperature=0)
