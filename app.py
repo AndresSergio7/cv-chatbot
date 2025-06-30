@@ -33,9 +33,18 @@ llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
 qa_chain = RetrievalQA.from_chain_type(llm=llm, retriever=vectorstore.as_retriever())
 
 st.set_page_config(page_title="SERGIO AI Chatbot", page_icon="🤖")
-st.title("🤖 Ask Me About My Experience or Personal Life")
+st.markdown("""
+    <div style='text-align: center;'>
+        <h1 style='font-size: 3em;'>🤖 Ask Me About My Experience or Personal Life</h1>
+        <p style='font-size: 1.2em; max-width: 700px; margin: 0 auto;'>
+            This chatbot was built using <b>LangChain</b>, <b>OpenAI</b>, and <b>Streamlit</b>. It uses a language model (LLM) to answer questions about my professional and personal experience based on my resume and custom input.<br><br>
+            <span style="color:gray;">Please remember that tokens are limited — don’t max out my credit card 🥲💸😂</span>
+        </p>
+    </div>
+""", unsafe_allow_html=True)
 
-question = st.text_input("This chatbot was built using LangChain, OpenAI, and Streamlit. It uses a language model (LLM) to answer questions about my professional experience, based on my resume and a custom summary. Please remember that tokens are limited — don’t max out my credit card 😅💸😂")
+
+question = st.text_input("")
 if question:
     with st.spinner("Thinking..."):
         answer = qa_chain.run(question)
