@@ -19,7 +19,7 @@ all_docs = pdf_docs + text_docs
 splitter = CharacterTextSplitter(chunk_size=500, chunk_overlap=50)
 docs = splitter.split_documents(all_docs)
 
-embeddings = OpenAIEmbeddings()
+embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
 vectorstore = FAISS.from_documents(docs, embeddings)
 
 llm = ChatOpenAI(model_name="gpt-4", temperature=0)
