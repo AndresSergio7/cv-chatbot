@@ -16,7 +16,7 @@ pdf_loader = PyMuPDFLoader("Valleleal_Sergio_CV.pdf")
 pdf_docs = pdf_loader.load()
 
 all_docs = pdf_docs + text_docs
-splitter = CharacterTextSplitter(chunk_size=500, chunk_overlap=50)
+splitter = CharacterTextSplitter(chunk_size=300, chunk_overlap=50)
 docs = splitter.split_documents(all_docs)
 
 embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
