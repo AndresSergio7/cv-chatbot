@@ -32,8 +32,8 @@ vectorstore = FAISS.from_documents(docs, embeddings)
 llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
 qa_chain = RetrievalQA.from_chain_type(llm=llm, retriever=vectorstore.as_retriever())
 
-st.set_page_config(page_title="AI CV Chatbot", page_icon="🤖")
-st.title("🤖 Ask Me About My Experience")
+st.set_page_config(page_title="SERGIO AI Chatbot", page_icon="🤖")
+st.title("🤖 Ask Me About My Experience or Personal Life")
 
 question = st.text_input("This chatbot was built using LangChain, OpenAI, and Streamlit. It uses a language model (LLM) to answer questions about my professional experience, based on my resume and a custom summary. Please remember that tokens are limited — don’t max out my credit card 😅💸😂")
 if question:
