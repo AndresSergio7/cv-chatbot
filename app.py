@@ -37,12 +37,12 @@ st.markdown("""
     <div style='text-align: center;'>
         <h1 style='font-size: 3em;'>🤖 Get to know more about my experience and Personal Life</h1>
         <p style='font-size: 1.2em; max-width: 700px; margin: 0 auto;'>
-            Hi, my name is Sergio and i created this simple Chatbot using using <b>LangChain</b>, <b>OpenAI</b>, and <b>Streamlit</b>. It uses a language model (LLM) to answer questions about my professional and personal experience based on my resume and custom input.Fell free to ask any question.<br><br>
+            Hi, my name is Sergio and i created this simple Chatbot using <b>LangChain</b>, <b>OpenAI</b>, and <b>Streamlit</b>. It uses a language model (LLM) to answer questions about my professional and personal experience based on my resume and custom input.Fell free to ask any question.<br><br>
             <span style="color:gray;">Please remember that tokens are limited — don’t max out my credit card 🥲💸😂</span>
         </p>
     </div>
 """, unsafe_allow_html=True)
-st.markdown("### 💡 Try asking one of these or type anything you want to know:")
+st.markdown("### 💡 Try asking one of these question or type anything you want to know:")
 
 col1, col2, col3 = st.columns(3)
 with col1:
@@ -51,7 +51,7 @@ with col1:
 
 with col2:
     if st.button("🏢 What companies have you worked for?"):
-        st.session_state["preset_question"] = "What companies have you worked for?"
+        st.session_state["preset_question"] = "What are your hobbies?"
 
 with col3:
     if st.button("🌍 What languages do you speak?"):
