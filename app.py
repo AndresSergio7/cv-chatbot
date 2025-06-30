@@ -29,7 +29,7 @@ except Exception as e:
 
 vectorstore = FAISS.from_documents(docs, embeddings)
 
-llm = ChatOpenAI(model_name="gpt-4", temperature=0)
+llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
 qa_chain = RetrievalQA.from_chain_type(llm=llm, retriever=vectorstore.as_retriever())
 
 st.set_page_config(page_title="AI CV Chatbot", page_icon="🤖")
