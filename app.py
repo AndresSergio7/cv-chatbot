@@ -83,6 +83,7 @@ if st.button("Send") and question:
 # --- Clear Chat Button ---
 if st.button("🧹 Clear Chat"):
     st.session_state.chat_history = []
-    st.experimental_rerun()
+    st.rerun()
+
 
 
