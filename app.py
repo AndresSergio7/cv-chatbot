@@ -14,7 +14,7 @@ st.set_page_config(page_title="Sergio AI Chatbot", page_icon="🤖", layout="cen
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 
-if "user_input" in st.session_state:
+if "user_input" not in st.session_state:
     st.session_state["user_input"] = ""
 
 # --- Setup API key and model ---
