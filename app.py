@@ -14,8 +14,8 @@ st.set_page_config(page_title="Sergio AI Chatbot", page_icon="🤖", layout="cen
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 
-if "user_input" not in st.session_state:
-    st.session_state.user_input = ""
+if "user_input" in st.session_state:
+    st.session_state["user_input"] = ""
 
 # --- Setup API key and model ---
 llm = ChatOpenAI(
@@ -97,7 +97,8 @@ if st.button("Send") and st.session_state.user_input:
     with st.spinner("Thinking..."):
         answer = qa_chain.run(st.session_state.user_input)
         st.session_state.chat_history.append((st.session_state.user_input, answer))
-        st.session_state.user_input = ""  # Clear input
+        if "user_input" in st.session_state:
+            st.session_state["user_input"] = ""  # ✅ Safe reset
     st.rerun()
 
 # --- Clear Chat Button ---
