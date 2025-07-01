@@ -93,12 +93,14 @@ st.markdown("</div>", unsafe_allow_html=True)
 question = st.text_input("Type your message...", key="user_input")
 
 # --- Handle Send ---
-if st.button("Send") and st.session_state.user_input:
+if st.button("Send") and st.session_state.get("user_input", ""):
     with st.spinner("Thinking..."):
-        answer = qa_chain.run(st.session_state.user_input)
-        st.session_state.chat_history.append((st.session_state.user_input, answer))
-        if "user_input" in st.session_state and st.session_state["user_input"]:
-            st.session_state["user_input"] = ""  # ✅ Safe reset
+        user_message = st.session_state["user_input"]
+        answer = qa_chain.run(user_message)
+        st.session_state.chat_history.append((user_message, answer))
+
+# ✅ Reset safely using del
+    del st.session_state["user_input"]
     st.rerun()
 
 
