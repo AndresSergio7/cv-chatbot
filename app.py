@@ -8,7 +8,11 @@ from langchain.text_splitter import CharacterTextSplitter
 import os
 
 # --- Setup API key ---
-os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
+llm = ChatOpenAI(
+    model_name="gpt-3.5-turbo",
+    temperature=0,
+    openai_api_key=st.secrets["OPENAI_API_KEY"]  # ✅ Explicit key
+)
 
 # --- Load documents ---
 text_loader = TextLoader("about_me.txt")
