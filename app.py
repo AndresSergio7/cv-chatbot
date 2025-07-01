@@ -55,7 +55,7 @@ with col2:
 
 with col3:
     if st.button("👨‍🏫Tell me about your experience in project managment?"):
-        st.session_state["preset_question"] = "What languages do you speak?"
+        st.session_state["preset_question"] = "What projects have you lead?"
 
 
 question = st.text_input(
