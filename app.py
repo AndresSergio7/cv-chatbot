@@ -97,9 +97,10 @@ if st.button("Send") and st.session_state.user_input:
     with st.spinner("Thinking..."):
         answer = qa_chain.run(st.session_state.user_input)
         st.session_state.chat_history.append((st.session_state.user_input, answer))
-        if "user_input" in st.session_state:
+        if "user_input" in st.session_state and st.session_state["user_input"]:
             st.session_state["user_input"] = ""  # ✅ Safe reset
     st.rerun()
+
 
 # --- Clear Chat Button ---
 if st.button("Clear Chat"):
