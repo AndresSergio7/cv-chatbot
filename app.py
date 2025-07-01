@@ -76,9 +76,6 @@ st.markdown("""
         </p>
     </div>
 """, unsafe_allow_html=True)
-st.markdown("### 💡 Try asking one of these question or type anything you want to know:")
-
-
 
 # --- Question Input ---
 question = st.text_input("Type your message...", key="user_input")
