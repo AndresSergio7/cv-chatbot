@@ -19,7 +19,7 @@ splitter = CharacterTextSplitter(chunk_size=300, chunk_overlap=50)
 docs = splitter.split_documents(all_docs)
 
 # --- Embeddings and Vectorstore ---
-embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+embeddings = OpenAIEmbeddings(model="text-embedding-ada-002")  # safer model than 3-small
 vectorstore = FAISS.from_documents(docs, embeddings)
 
 # --- QA chain ---
@@ -33,7 +33,10 @@ st.set_page_config(page_title="Sergio AI Chatbot", page_icon="🤖", layout="cen
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 
-# --- Stylish Header ---
+if "user_input" not in st.session_state:
+    st.session_state.user_input = ""
+
+# --- Custom Styles ---
 st.markdown("""
     <style>
         .message-container {
@@ -62,36 +65,39 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-st.markdown("<h2 style='text-align:center;'>🤖 Sergio AI Chatbot</h2>", unsafe_allow_html=True)
+# --- Header ---
+st.markdown("<h2 style='text-align:center;'>Sergio AI Chatbot</h2>", unsafe_allow_html=True)
 st.markdown("<p style='text-align:center;'>Ask me about my experience, projects or personal interests!</p>", unsafe_allow_html=True)
 
-# --- Chat Display Area ---
-st.set_page_config(page_title="SERGIO AI Chatbot", page_icon="🤖")
 st.markdown("""
     <div style='text-align: center;'>
-        <h1 style='font-size: 3em;'>🤖 Get to know more about my experience and personal life</h1>
-        <p style='font-size: 1.2em; max-width: 700px; margin: 0 auto;'>
-            Hi, my name is Sergio and i created this simple Chatbot using <b>LangChain</b>, <b>OpenAI</b>, and <b>Streamlit</b>. It uses a language model (LLM) to answer questions about my professional and personal experience based on my resume and custom input.Fell free to ask any question.<br><br>
+        <h1 style='font-size: 2em;'> Get to know more about my experience and personal life</h1>
+        <p style='font-size: 1.1em; max-width: 700px; margin: 0 auto;'>
+            Hi, my name is Sergio and I created this simple chatbot using <b>LangChain</b>, <b>OpenAI</b>, and <b>Streamlit</b>. It uses a language model (LLM) to answer questions about my professional and personal experience based on my resume and custom input.<br><br>
             <span style="color:gray;">Please remember that tokens are limited — don’t max out my credit card 🥲💸😂</span>
         </p>
     </div>
 """, unsafe_allow_html=True)
 
+# --- Display Chat History ---
+st.markdown("<div class='message-container'>", unsafe_allow_html=True)
+for user_msg, bot_msg in st.session_state.chat_history:
+    st.markdown(f"<div class='user-msg'>🧑‍💬 {user_msg}</div>", unsafe_allow_html=True)
+    st.markdown(f"<div class='bot-msg'>🤖 {bot_msg}</div>", unsafe_allow_html=True)
+st.markdown("</div>", unsafe_allow_html=True)
+
 # --- Question Input ---
 question = st.text_input("Type your message...", key="user_input")
 
+# --- Handle Send ---
 if st.button("Send") and st.session_state.user_input:
     with st.spinner("Thinking..."):
         answer = qa_chain.run(st.session_state.user_input)
         st.session_state.chat_history.append((st.session_state.user_input, answer))
-        st.session_state.user_input = ""  # Clear input box
+        st.session_state.user_input = ""  # Clear input
     st.rerun()
-
 
 # --- Clear Chat Button ---
-if st.button("🧹 Clear Chat"):
+if st.button("Clear Chat"):
     st.session_state.chat_history = []
     st.rerun()
-
-
-
