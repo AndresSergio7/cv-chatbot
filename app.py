@@ -7,11 +7,21 @@ from langchain_community.document_loaders import TextLoader, PyMuPDFLoader
 from langchain.text_splitter import CharacterTextSplitter
 import os
 
-# --- Setup API key ---
+# --- Streamlit Page Settings ---
+st.set_page_config(page_title="Sergio AI Chatbot", page_icon="🤖", layout="centered")
+
+# --- Session State Setup ---
+if "chat_history" not in st.session_state:
+    st.session_state.chat_history = []
+
+if "user_input" not in st.session_state:
+    st.session_state.user_input = ""
+
+# --- Setup API key and model ---
 llm = ChatOpenAI(
     model_name="gpt-3.5-turbo",
     temperature=0,
-    openai_api_key=st.secrets["OPENAI_API_KEY"]  # ✅ Explicit key
+    openai_api_key=st.secrets["OPENAI_API_KEY"]
 )
 
 # --- Load documents ---
@@ -23,22 +33,11 @@ splitter = CharacterTextSplitter(chunk_size=300, chunk_overlap=50)
 docs = splitter.split_documents(all_docs)
 
 # --- Embeddings and Vectorstore ---
-embeddings = OpenAIEmbeddings(model="text-embedding-ada-002")  # safer model than 3-small
+embeddings = OpenAIEmbeddings(model="text-embedding-ada-002")
 vectorstore = FAISS.from_documents(docs, embeddings)
 
 # --- QA chain ---
-llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
 qa_chain = RetrievalQA.from_chain_type(llm=llm, retriever=vectorstore.as_retriever())
-
-# --- Streamlit Page Settings ---
-st.set_page_config(page_title="Sergio AI Chatbot", page_icon="🤖", layout="centered")
-
-# --- Session State Setup ---
-if "chat_history" not in st.session_state:
-    st.session_state.chat_history = []
-
-if "user_input" not in st.session_state:
-    st.session_state.user_input = ""
 
 # --- Custom Styles ---
 st.markdown("""
@@ -70,12 +69,12 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- Header ---
-st.markdown("<h2 style='text-align:center;'>Sergio AI Chatbot</h2>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align:center;'>🤖 Sergio AI Chatbot</h2>", unsafe_allow_html=True)
 st.markdown("<p style='text-align:center;'>Ask me about my experience, projects or personal interests!</p>", unsafe_allow_html=True)
 
 st.markdown("""
     <div style='text-align: center;'>
-        <h1 style='font-size: 2em;'> Get to know more about my experience and personal life</h1>
+        <h1 style='font-size: 2em;'>Get to know more about my experience and personal life</h1>
         <p style='font-size: 1.1em; max-width: 700px; margin: 0 auto;'>
             Hi, my name is Sergio and I created this simple chatbot using <b>LangChain</b>, <b>OpenAI</b>, and <b>Streamlit</b>. It uses a language model (LLM) to answer questions about my professional and personal experience based on my resume and custom input.<br><br>
             <span style="color:gray;">Please remember that tokens are limited — don’t max out my credit card 🥲💸😂</span>
