@@ -66,19 +66,30 @@ st.markdown("<h2 style='text-align:center;'>🤖 Sergio AI Chatbot</h2>", unsafe
 st.markdown("<p style='text-align:center;'>Ask me about my experience, projects or personal interests!</p>", unsafe_allow_html=True)
 
 # --- Chat Display Area ---
-st.markdown("<div class='message-container'>", unsafe_allow_html=True)
-for q, a in st.session_state.chat_history:
-    st.markdown(f"<div class='user-msg'>🧑‍💬 {q}</div>", unsafe_allow_html=True)
-    st.markdown(f"<div class='bot-msg'>🤖 {a}</div>", unsafe_allow_html=True)
-st.markdown("</div>", unsafe_allow_html=True)
+st.set_page_config(page_title="SERGIO AI Chatbot", page_icon="🤖")
+st.markdown("""
+    <div style='text-align: center;'>
+        <h1 style='font-size: 3em;'>🤖 Get to know more about my experience and personal life</h1>
+        <p style='font-size: 1.2em; max-width: 700px; margin: 0 auto;'>
+            Hi, my name is Sergio and i created this simple Chatbot using <b>LangChain</b>, <b>OpenAI</b>, and <b>Streamlit</b>. It uses a language model (LLM) to answer questions about my professional and personal experience based on my resume and custom input.Fell free to ask any question.<br><br>
+            <span style="color:gray;">Please remember that tokens are limited — don’t max out my credit card 🥲💸😂</span>
+        </p>
+    </div>
+""", unsafe_allow_html=True)
+st.markdown("### 💡 Try asking one of these question or type anything you want to know:")
+
+
 
 # --- Question Input ---
 question = st.text_input("Type your message...", key="user_input")
-if st.button("Send") and question:
+
+if st.button("Send") and st.session_state.user_input:
     with st.spinner("Thinking..."):
-        answer = qa_chain.run(question)
-        st.session_state.chat_history.append((question, answer))
-        st.rerun()  # To immediately show new messages
+        answer = qa_chain.run(st.session_state.user_input)
+        st.session_state.chat_history.append((st.session_state.user_input, answer))
+        st.session_state.user_input = ""  # Clear input box
+    st.rerun()
+
 
 # --- Clear Chat Button ---
 if st.button("🧹 Clear Chat"):
