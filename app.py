@@ -78,7 +78,7 @@ if st.button("Send") and question:
     with st.spinner("Thinking..."):
         answer = qa_chain.run(question)
         st.session_state.chat_history.append((question, answer))
-        st.experimental_rerun()  # To immediately show new messages
+        st.rerun()  # To immediately show new messages
 
 # --- Clear Chat Button ---
 if st.button("🧹 Clear Chat"):
