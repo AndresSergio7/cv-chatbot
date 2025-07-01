@@ -50,11 +50,11 @@ with col1:
         st.session_state["preset_question"] = "Can you tell me about a project you've done in AI?"
 
 with col2:
-    if st.button("🏢 What companies have you worked for?"):
+    if st.button("🏢 What are your hobbies?"):
         st.session_state["preset_question"] = "What are your hobbies?"
 
 with col3:
-    if st.button("🌍 What languages do you speak?"):
+    if st.button("👨‍🏫Tell me about your experience in project managment?"):
         st.session_state["preset_question"] = "What languages do you speak?"
 
 
