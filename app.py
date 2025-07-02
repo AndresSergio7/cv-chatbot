@@ -16,7 +16,7 @@ if "chat_history" not in st.session_state:
 
 if "user_input" not in st.session_state:
     st.session_state["user_input"] = ""
-
+# gpt-4o-mini cambiarlo a mini
 # --- Setup API key and model ---
 llm = ChatOpenAI(
     model_name="gpt-3.5-turbo",
