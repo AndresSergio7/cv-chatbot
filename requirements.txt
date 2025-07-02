@@ -1,3 +1,10 @@
+langchain
+langchain-community
+langchain-openai
+openai
+faiss-cpu
+PyMuPDF
+streamlit
 streamlit
 langchain
 openai
