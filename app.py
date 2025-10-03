@@ -70,14 +70,14 @@ st.markdown("""
 
 # --- Header ---
 st.markdown("<h2 style='text-align:center;'>🤖 Sergio AI Chatbot</h2>", unsafe_allow_html=True)
-st.markdown("<p style='text-align:center;'>Ask me about my experience, projects or personal interests!</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align:center;'>¡Pregúntame sobre mi experiencia, proyectos o intereses personales!</p>", unsafe_allow_html=True)
 
 st.markdown("""
     <div style='text-align: center;'>
-        <h1 style='font-size: 2em;'>Get to know more about my experience and personal life</h1>
+        <h1 style='font-size: 2em;'>"Conoce más sobre mi experiencia y vida personal.</h1>
         <p style='font-size: 1.1em; max-width: 700px; margin: 0 auto;'>
-            Hi, my name is Sergio and I created this simple chatbot using <b>LangChain</b>, <b>OpenAI</b>, and <b>Streamlit</b>. It uses a language model (LLM) to answer questions about my professional and personal experience based on my resume and custom input.<br><br>
-            <span style="color:gray;">Please remember that tokens are limited — don’t max out my credit card 🥲💸😂</span>
+            Hola, mi nombre es Sergio y creé este chatbot sencillo usando <b>LangChain</b>, <b>OpenAI</b> y <b>Streamlit</b>. Utiliza un modelo de lenguaje (LLM) para responder preguntas sobre mi experiencia profesional y personal basándose en mi currículum y en información personalizada.<br><br>
+            <span style="color:gray;Por favor, recuerda que los tokens son limitados, no me agotes la tarjeta de crédito  🥲💸😂</span>
         </p>
     </div>
 """, unsafe_allow_html=True)
