@@ -1,19 +1,23 @@
-My name is Sergio Valle. I used to work in the operations industry, specifically in agriculture, where I led various operational projects. Most of these projects involved launching new operations, from implementing machinery to setting up entire production facilities. I really enjoyed that chapter of my life, but I always felt a strong curiosity for artificial intelligence. That curiosity eventually led me to make the decision to pursue a career in AI. I’m passionate about applying AI to solve real-world business challenges.
+Narrativa Profesional de Sergio Valle (Revisada y Consolidada)
+Sergio Valle es un líder profesional con una trayectoria definida por la gestión de proyectos de alto impacto y una transición estratégica hacia la Inteligencia Artificial (IA), impulsado por una profunda curiosidad por aplicar la tecnología para resolver desafíos empresariales reales.
 
-At Nordic, I worked on several projects as a Project Manager. My most significant accomplishment was leading the development of a new fertilizer plant. When the project began, the only existing asset was the warehouse structure. I was responsible for overseeing the entire process, including selecting the right suppliers, assembling the engineering team, and managing the construction.
+Trayectoria en Operaciones y Liderazgo de Proyectos
+La experiencia fundamental de Sergio se forjó en la industria de operaciones, particularmente en el sector agrícola, donde se especializó en el lanzamiento de nuevas operaciones e instalaciones de producción.
 
-It was a major challenge, especially since my background is primarily in business rather than engineering. However, I made a strong effort to understand the technical aspects involved and successfully led the project to completion. Given its scale a million-dollar investment it was a high-responsibility role that significantly contributed to my professional growth.
+Su logro más significativo fue en Nordic, donde, como Gerente de Proyecto, lideró el desarrollo de una nueva planta de fertilizantes, una inversión de un millón de dólares. Asumiendo la responsabilidad desde cero, supervisó todo el proceso, lo que representó un hito de alta responsabilidad.
 
-At Beder, I gained valuable insight into the technical side of companies. I deepened my understanding of how APIs work and learned firsthand how startups operate. The experience helped me realize how challenging it can be to build a business from the ground up, and how crucial the team is in turning an idea into a reality. The people you work with truly become the driving force behind success.
+Proyectos de Automatización y Transición a la IA
+La experiencia de Sergio no solo se limita a grandes infraestructuras, sino también a la eficiencia interna. En Guatemala, lideró proyectos clave de automatización, que incluyen:
 
-In my free time, I love going to the beach and enjoying the sun. Sometimes I surf a little if the swell is good and not too big. I'm not great at it yet, but I'm improving. My goal is to get really good one day, but for now, I’m enjoying the journey and having fun with the process.
+La automatización de reportes ejecutivos para optimizar la toma de decisiones gerenciales.
 
-I also enjoy watching soccer and playing padel. Both sports keep me active and bring me a lot of joy.
+La implementación de soluciones de agendación de citas por llamadas utilizando Inteligencia Artificial.
 
-Lately, I’ve been trying to read more. I didn’t enjoy reading much at first, but I’ve started to really appreciate it. One book that has had a big impact on me is The Saint, the Surfer, and the CEO. It helped me make some meaningful decisions in my life.
+Su curiosidad por la IA lo llevó a Beder, donde obtuvo una valiosa perspectiva del lado técnico, profundizando su conocimiento en el funcionamiento de las APIs y las dinámicas del ecosistema startup.
 
-I was born in Tegucigalpa, the capital of Honduras, where my father is from. However, my mom is from Guatemala so I’ve spent most of my life in Guatemala City, Guatemala, where I’ve built amazing friendships and deep connections. Currently, I live in Barcelona, and I’m truly inspired by the innovation and startup ecosystem here. The support from the Catalan government for entrepreneurship has opened my eyes to the vast potential Europe has to offer.
+Para formalizar su expertise, Sergio ha finalizado su Maestría en IA y Aprendizaje Automático para Negocios y está actualmente cursando la Certificación PMI en Inteligencia Artificial, reforzando su compromiso con las mejores prácticas en la gestión de proyectos de IA.
 
-When it comes to food, my favorite is definitely a simple salami pizza. Nothing fancy—just a good, classic Italian pizza.
+Raíces, Visión y Equilibrio
+Aunque nació en Tegucigalpa, Honduras, Sergio ha forjado lazos profundos en Guatemala City. Actualmente reside en Guatemala, manteniendo fuertes conexiones con la innovación tras su experiencia en el ecosistema startup de Barcelona.
 
-Looking ahead, I see myself as a role model for my family, friends, and colleagues. I want to be someone who has a positive impact on everyone I interact with—personally and professionally. 
+En el futuro, aspira a ser un modelo a seguir para su familia, amigos y colegas, buscando generar un impacto positivo en cada interacción. Para mantener el equilibrio, disfruta del fútbol, el pádel, encuentra inspiración en la lectura (citando The Saint, the Surfer, and the CEO como un libro influyente), y busca momentos de ocio en la playa, disfrutando del sol y practicando surf.
