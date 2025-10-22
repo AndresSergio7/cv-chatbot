@@ -26,7 +26,7 @@ llm = ChatOpenAI(
 
 # --- Load documents ---
 text_loader = TextLoader("about_me.txt")
-pdf_loader = PyMuPDFLoader("Valleleal_Sergio_CV.pdf")
+pdf_loader = PyMuPDFLoader("Valleleal_Sergio_CV_Español.pdf")
 all_docs = text_loader.load() + pdf_loader.load()
 
 splitter = CharacterTextSplitter(chunk_size=300, chunk_overlap=50)
