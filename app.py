@@ -2,7 +2,7 @@ import streamlit as st
 from langchain_openai import ChatOpenAI
 from langchain.chains import RetrievalQA
 from langchain_community.vectorstores import FAISS
-from langchain.embeddings import OpenAIEmbeddings
+from langchain_openai import OpenAIEmbeddings
 from langchain_community.document_loaders import TextLoader, PyMuPDFLoader
 from langchain.text_splitter import CharacterTextSplitter
 import os
@@ -19,7 +19,7 @@ if "user_input" not in st.session_state:
 # gpt-4o-mini cambiarlo a mini
 # --- Setup API key and model ---
 llm = ChatOpenAI(
-    model_name="gpt-3.5-turbo",
+    model="gpt-3.5-turbo",
     temperature=0,
     openai_api_key=st.secrets["OPENAI_API_KEY"]
 )
