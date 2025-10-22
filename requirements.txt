@@ -1,14 +1,9 @@
-langchain
-langchain-community
-langchain-openai
-openai
-faiss-cpu
-PyMuPDF
-streamlit
-streamlit
-langchain
-openai
-faiss-cpu
-PyMuPDF
-langchain-openai
+langchain==0.1.16
+langchain-community==0.0.34
+langchain-openai==0.0.8
+openai>=1.12.0
+faiss-cpu==1.7.4
+PyMuPDF==1.23.6
+streamlit==1.36.0
+tiktoken>=0.6.0
 
