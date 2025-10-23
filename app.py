@@ -31,17 +31,22 @@ text_loader = TextLoader("about_me.txt")
 pdf_loader = PyMuPDFLoader("Valleleal_Sergio_CV_Español.pdf")
 all_docs = text_loader.load() + pdf_loader.load()
 
-splitter = CharacterTextSplitter(chunk_size=300, chunk_overlap=50)
+splitter = RecursiveCharacterTextSplitter(chunk_size=300, chunk_overlap=50)
 docs = splitter.split_documents(all_docs)
 
 # --- Embeddings and Vectorstore ---
-embeddings = OpenAIEmbeddings(model="text-embedding-ada-002")
-vectorstore = FAISS.from_documents(docs, embeddings)
+embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+vectorstore = Chroma.from_documents(docs, embedding=embeddings, persist_directory=".chroma")
+retriever = vectorstore.as_retriever()
+
 
 # --- QA chain ---
-prompt = ChatPromptTemplate.from_template("Responde basado en el contexto: {context}\nPregunta: {input}")
+prompt = ChatPromptTemplate.from_template(
+    "Responde basado en el contexto:\n{context}\n\nPregunta: {input}"
+)
 document_chain = create_stuff_documents_chain(llm, prompt)
-qa_chain = create_retrieval_chain(vectorstore.as_retriever(), document_chain)
+qa_chain = create_retrieval_chain(retriever, document_chain)
+
 
 
 # --- Custom Styles ---
@@ -101,12 +106,13 @@ question = st.text_input("Type your message...", key="user_input")
 if st.button("Send") and st.session_state.get("user_input", ""):
     with st.spinner("Thinking..."):
         user_message = st.session_state["user_input"]
-        answer = qa_chain.run(user_message)
+        result = qa_chain.invoke({"input": user_message})   # <-- invoke en vez de run
+        answer = result.get("answer", "")
         st.session_state.chat_history.append((user_message, answer))
 
-# ✅ Reset safely using del
     del st.session_state["user_input"]
     st.rerun()
+
 
 
 # --- Clear Chat Button ---
