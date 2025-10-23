@@ -1,13 +1,13 @@
 import streamlit as st
-from langchain_openai import ChatOpenAI
+from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_community.vectorstores import FAISS
-from langchain_openai import OpenAIEmbeddings
+from langchain_community.vectorstores import Chroma              # <-- antes: FAISS
 from langchain_community.document_loaders import TextLoader, PyMuPDFLoader
-from langchain.text_splitter import CharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter  # <-- splitter moderno
 import os
+
 
 # --- Streamlit Page Settings ---
 st.set_page_config(page_title="Sergio AI Chatbot", page_icon="🤖", layout="centered")
