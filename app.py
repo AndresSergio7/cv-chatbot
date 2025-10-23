@@ -39,7 +39,10 @@ embeddings = OpenAIEmbeddings(model="text-embedding-ada-002")
 vectorstore = FAISS.from_documents(docs, embeddings)
 
 # --- QA chain ---
-qa_chain = RetrievalQA.from_chain_type(llm=llm, retriever=vectorstore.as_retriever())
+prompt = ChatPromptTemplate.from_template("Responde basado en el contexto: {context}\nPregunta: {input}")
+document_chain = create_stuff_documents_chain(llm, prompt)
+qa_chain = create_retrieval_chain(vectorstore.as_retriever(), document_chain)
+
 
 # --- Custom Styles ---
 st.markdown("""
