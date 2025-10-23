@@ -87,7 +87,7 @@ st.markdown("""
         <h1 style='font-size: 2em;'>Conoce más sobre mi experiencia y vida personal.</h1>
         <p style='font-size: 1.1em; max-width: 700px; margin: 0 auto;'>
             Hola, mi nombre es Sergio y creé este chatbot sencillo usando <b>LangChain</b>, <b>OpenAI</b> y <b>Streamlit</b>. Utiliza un modelo de lenguaje (LLM) para responder preguntas sobre mi experiencia profesional y personal basándose en mi currículum y en información personalizada.<br><br>
-            <span style="color:gray;Por favor, recuerda que los tokens son limitados, no me agotes la tarjeta de crédito  🥲💸😂</span>
+            <span style="color:gray;">Por favor, recuerda que los tokens son limitados, no me agotes la tarjeta de crédito  🥲💸😂</span>
         </p>
     </div>
 """, unsafe_allow_html=True)
